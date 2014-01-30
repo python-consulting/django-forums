@@ -8,10 +8,10 @@
 
 {% block breadcrumb %}
 <ol class="breadcrumb">
-  <li><a href="{% url 'forums:overview' %}">{% trans "Forums" %}</a></li>
-  <li><a href="{% url 'forums:overview' %}#{{topic.forum.category.id}}">{{topic.forum.category.name}}</a></li>
-  <li><a href="{% url 'forums:forum' topic.forum.id %}">{{topic.forum.name}}</a></li>
-  <li><a href="{% url 'forums:topic' topic.id %}">{{topic.name}}</a></li>
+  <li><a href="{% url forums:overview %}">{% trans "Forums" %}</a></li>
+  <li><a href="{% url forums:overview %}#{{topic.forum.category.id}}">{{topic.forum.category.name}}</a></li>
+  <li><a href="{% url forums:forum topic.forum.id %}">{{topic.forum.name}}</a></li>
+  <li><a href="{% url forums:topic topic.id %}">{{topic.name}}</a></li>
   <li class="active">{% trans "Create post" %}</li>
 </ol>
 {% endblock %}
@@ -30,7 +30,7 @@
     </div>
   </div>
   <div class="col-md-9">
-    <form method="post" action="{% url 'forums:post_create' topic.id %}">
+    <form method="post" action="{% url forums:post_create topic.id %}">
       {% csrf_token %}
       {% include "forms.html" %}
       <p><input type="submit" class="btn btn-primary" value="{% trans "Create post" %}"></p>

@@ -8,9 +8,9 @@
 
 {% block breadcrumb %}
 <ol class="breadcrumb">
-  <li><a href="{% url 'forums:overview' %}">{% trans "Forums" %}</a></li>
-  <li><a href="{% url 'forums:overview' %}#{{topic.forum.category.id}}">{{topic.forum.category.name}}</a></li>
-  <li><a href="{% url 'forums:forum' topic.forum.id %}">{{topic.forum.name}}</a></li>
+  <li><a href="{% url forums:overview %}">{% trans "Forums" %}</a></li>
+  <li><a href="{% url forums:overview %}#{{topic.forum.category.id}}">{{topic.forum.category.name}}</a></li>
+  <li><a href="{% url forums:forum topic.forum.id %}">{{topic.forum.name}}</a></li>
   <li class="active">{{topic.name}}</li>
 </ol>
 {% endblock %}
@@ -45,7 +45,7 @@
 <div class="row">
   <div class="span12">
     {% if not topic.forum.is_closed or user.is_staff %}
-    <p><a href="{% url 'forums:post_create' topic.id %}" class="btn btn-primary">{% trans "Create post" %}</a></p>
+    <p><a href="{% url forums:post_create topic.id %}" class="btn btn-primary">{% trans "Create post" %}</a></p>
     {% else %}
     <p>{% trans "This forum is closed, only admins can create and post here." %}
     {% endif %}
